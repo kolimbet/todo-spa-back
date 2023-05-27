@@ -27,14 +27,14 @@ class Task extends Model
    * @return void
    */
   public function setIsCompletedAttribute($value) {
-    Log::info("setIsCompletedAttribute", [$value, $this->attributes]);
+    // Log::info("setIsCompletedAttribute", [$value, $this->attributes]);
     $value = (bool) $value;
     $oldValue = null;
     if (isset($this->attributes['is_completed'])) $oldValue = $this->attributes['is_completed'];
     if ($oldValue !== $value) {
       $this->attributes['is_completed'] = $value;
       if ($value) {
-        $this->attributes['end_date'] = Carbon::now();
+        $this->attributes['end_date'] = Carbon::now()->format('Y-m-d H:i:s');
       } else {
         $this->attributes['end_date'] = null;
       }
