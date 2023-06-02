@@ -26,6 +26,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
   Route::get('/user', [UserController::class, 'index']);
 
+  Route::post('/user/check-password', [UserController::class, 'checkPassword']);
+  Route::post('/user/update-password', [UserController::class, 'updatePassword']);
+
   Route::get('/tasks', [TaskController::class, 'list']);
   Route::get('/tasks/counter', [TaskController::class, 'counter']);
   Route::post('/tasks', [TaskController::class, 'store']);

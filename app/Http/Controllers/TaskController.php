@@ -18,6 +18,7 @@ class TaskController extends Controller
    */
   public function list(Request $request)
   {
+    // return response()->json(["error" => "test error " . __METHOD__], 500);
     $user = $request->user();
     $tasks = $user->tasks()->get();
     // $tasks = [];
