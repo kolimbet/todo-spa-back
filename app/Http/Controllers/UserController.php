@@ -157,12 +157,12 @@ class UserController extends Controller
    * @return \Illuminate\Http\Response
    */
   public function updatePassword(UpdateUserPasswordRequest $request) {
+    // return response()->json(["error" => 'test error'], 500);
     $user = $request->user();
     if (!$user) return response()->json(["error" => "User is not logged in"], 500);
 
     $passData = $request->only("password", "new_password", "new_password_repeat");
     $isPasswordVerified = Hash::check($passData["password"], $user->password);
-    // return response()->json(["error" => 'test error'], 500);
 
     if (!$isPasswordVerified) return response()->json(["error" => "Invalid current password entered"], 500);
     $user->password = Hash::make($passData["new_password"]);
@@ -170,5 +170,48 @@ class UserController extends Controller
     Log::info("change user #{$user->id} password on {$user->password}", [$result]);
     if ($result) return response()->json((bool) $result, 200);
     else return response()->json(["error" => "Failed to save a new user password record"], 500);
+  }
+
+  /**
+   * Set the user's avatar
+   *
+   * @param Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function setAvatar(Request $request) {
+    // return response()->json(["error" => 'test error'], 500);
+    if (!$request->has("id")) return response()->json(["error" => "Image id not received"], 500);
+    $imageId = $request->input("id");
+
+    $user = $request->user();
+    if (!$user) return response()->json(["error" => "User is not logged in"], 500);
+
+    // $image = $user->images()->where('id', $imageId)->first();
+    $image = $user->images()->where('id', $imageId)->first();
+    if (!$image) return response()->json(["error" => 'Image record not found'], 500);
+
+    $user->avatar_id = $image->id;
+    $result = $user->save();
+    Log::info("change user #{$user->id} avatar on image #{$user->avatar_id}", [$result]);
+    if ($result) return response()->json(new UserResource($user), 200);
+    else return response()->json(["error" => 'Failed to save a new user avatar record'], 500);
+  }
+
+  /**
+   * Delete a user's avatar
+   *
+   * @param Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function deleteAvatar(Request $request) {
+    // return response()->json(["error" => 'test error'], 500);
+    $user = $request->user();
+    if (!$user) return response()->json(["error" => "User is not logged in"], 500);
+
+    $user->avatar_id = null;
+    $result = $user->save();
+    Log::info("delete user #{$user->id} avatar", [$result]);
+    if ($result) return response()->json(new UserResource($user), 200);
+    else return response()->json(["error" => 'Failed to delete user avatar record'], 500);
   }
 }

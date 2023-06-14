@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -28,6 +29,13 @@ Route::middleware('auth:sanctum')->group(function () {
 
   Route::post('/user/check-password', [UserController::class, 'checkPassword']);
   Route::post('/user/update-password', [UserController::class, 'updatePassword']);
+
+  Route::post('/user/avatar', [UserController::class, 'setAvatar']);
+  Route::delete('/user/avatar', [UserController::class, 'deleteAvatar']);
+
+  Route::get('/images', [ImageController::class, 'list']);
+  Route::post('/images', [ImageController::class, 'store']);
+  Route::delete('/images/{id}', [ImageController::class, 'destroy']);
 
   Route::get('/tasks', [TaskController::class, 'list']);
   Route::get('/tasks/counter', [TaskController::class, 'counter']);

@@ -33,6 +33,7 @@ class TaskController extends Controller
    */
   public function counter(Request $request)
   {
+    // return response()->json(["error" => "test error " . __METHOD__], 500);
     $user = $request->user();
     $tasks = $user->tasks()->get();
 
@@ -101,6 +102,7 @@ class TaskController extends Controller
    */
   public function updatingTitle(UpdateTaskTitleRequest $request, $id)
   {
+    // return response()->json(["error" => 'test error'], 500);
     $user = $request->user();
     $task = $user->tasks()->where('id', $id)->first();
     if (!$task) return response()->json(["error" => "Record not found"], 404);
@@ -125,6 +127,7 @@ class TaskController extends Controller
    */
   public function destroy(Request $request, $id)
   {
+    // return response()->json(["error" => 'test error'], 500);
     $user = $request->user();
     $deleteResult = $user->tasks()->where('id', $id)->delete();
     if ($deleteResult) {

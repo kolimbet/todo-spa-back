@@ -20,7 +20,7 @@ class ImageResource extends JsonResource
       'path' => $this->path,
       'name' => $this->name,
       'mime_type' => $this->mime_type,
-      'full_url' => "/storage/{$this->path}/{$this->name}",
+      'full_url' => config('app.url')."/storage/{$this->path}/{$this->name}",
     ];
   }
 }
