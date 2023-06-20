@@ -1,0 +1,520 @@
+{
+	"info": {
+		"_postman_id": "0a1ac4d7-f836-4067-9a69-fe8634bee0a9",
+		"name": "ToDo.back",
+		"description": "API for To Do list application. [Link to GitHub](https://github.com/kolimbet/todo-spa-back)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18653870"
+	},
+	"item": [
+		{
+			"name": "/name-is-free",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domein}}/name-is-free",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"name-is-free"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/email-is-free",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@mail.ru",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domein}}/email-is-free",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"email-is-free"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "user@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "password_repeat",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domein}}/register",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "remember",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domein}}/login",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domein}}/logout",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domein}}/user",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user/check-password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domein}}/user/check-password",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"user",
+						"check-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user/update-password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "password",
+							"value": "1234567",
+							"type": "text"
+						},
+						{
+							"key": "new_password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "new_password_repeat",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domein}}/user/update-password",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"user",
+						"update-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tasks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domein}}/tasks",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tasks/counter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domein}}/tasks/counter",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"tasks",
+						"counter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tasks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "test string 1",
+							"type": "text"
+						},
+						{
+							"key": "is_completed",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domein}}/tasks",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tasks/{id}/completing",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_completed",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domein}}/tasks/99/completing",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"tasks",
+						"99",
+						"completing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tasks/{id}/updating-title",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "testing require test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domein}}/tasks/99/updating-title",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"tasks",
+						"99",
+						"updating-title"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tasks/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domein}}/tasks/100",
+					"host": [
+						"{{domein}}"
+					],
+					"path": [
+						"tasks",
+						"100"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "2|V5yanS0PWxtzbfHrpBEHbchVUiUw9rVHGpD2zAwK",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domein",
+			"value": "http://todo-app.back/api",
+			"type": "string"
+		}
+	]
+}
